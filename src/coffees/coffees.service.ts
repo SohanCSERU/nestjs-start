@@ -7,7 +7,7 @@ import {
 import { Coffee } from './entities/coffee.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
+import { CreateCoffeeDto } from './dto/create-coffee.dto';
 
 @Injectable()
 export class CoffeesService {
