@@ -24,9 +24,9 @@ export class CoffeesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    // console.log('id: ' + id);
-    // return `This action return ${id} coffees`;
+    console.log('id: ' + id);
     return this.coffeesService.findOne(id);
+    // return this.coffeesService.findOne(id);
   }
 
   @Post()
@@ -42,9 +42,10 @@ export class CoffeesController {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   // return `This action delete ${id} coffee`;
-  //   // return this.coffeesService.remove(id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    // console.log('Inside Delete Route');
+    // return `This action delete ${id} coffee`;
+    return this.coffeesService.remove(id);
+  }
 }
