@@ -11,6 +11,7 @@ import { Connection, Model } from 'mongoose';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { COFFEE_BRANDS } from './coffees.constants';
+// import { Tea } from './entities/tea.entity';
 
 @Injectable()
 export class CoffeesService {
@@ -19,6 +20,7 @@ export class CoffeesService {
 		@InjectModel(Event.name) private readonly eventModel: Model<Event>,
 		@InjectConnection() private readonly connection: Connection,
 		@Inject(COFFEE_BRANDS) coffeeBrands: string[],
+		@InjectModel('Tea') private readonly teaModel: Model<Coffee>,
 	) {
 		console.log(coffeeBrands);
 	}
@@ -40,7 +42,7 @@ export class CoffeesService {
 		return coffee;
 	}
 	create(createCoffeeDto: CreateCoffeeDto) {
-		const coffee = new this.coffeeModel(createCoffeeDto);
+		const coffee = new this.teaModel(createCoffeeDto);
 		return coffee.save();
 	}
 

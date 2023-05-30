@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Module, Injectable } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
 import { CoffeesController } from './coffees.controller';
@@ -6,6 +7,7 @@ import { Coffee, CoffeeSchema } from './entities/coffee.entity';
 import { EventSchema } from 'src/events/entities/event.entity/event.entity';
 import { COFFEE_BRANDS } from './coffees.constants';
 import { Connection } from 'mongoose';
+import { Tea, TeaSchema } from './entities/tea.entity';
 
 // class ConfigService {}
 // class DevelopmentConfigService {}
@@ -28,6 +30,10 @@ import { Connection } from 'mongoose';
 			{
 				name: Event.name,
 				schema: EventSchema,
+			},
+			{
+				name: 'Tea',
+				schema: CoffeeSchema,
 			},
 		]),
 	],
