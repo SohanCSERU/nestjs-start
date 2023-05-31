@@ -11,6 +11,7 @@ import { Connection, Model } from 'mongoose';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { COFFEE_BRANDS } from './coffees.constants';
+import { ConfigService } from '@nestjs/config';
 // import { Tea } from './entities/tea.entity';
 
 @Injectable()
@@ -20,7 +21,7 @@ export class CoffeesService {
 		@InjectModel(Event.name) private readonly eventModel: Model<Event>,
 		@InjectConnection() private readonly connection: Connection,
 		@Inject(COFFEE_BRANDS) coffeeBrands: string[],
-		@InjectModel('Tea') private readonly teaModel: Model<Coffee>,
+		@InjectModel('Tea') private readonly teaModel: Model<Coffee>, // private readonly configService: ConfigService,
 	) {
 		console.log(coffeeBrands);
 	}
